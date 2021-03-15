@@ -1,8 +1,6 @@
 package com.mohammed.SpringIntroduction;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,10 +22,19 @@ public class UserController {
     @CrossOrigin(origins = "http://localhost:3000")
     public List<UserDetails> testUsers(){
         return Arrays.asList(
-                new UserDetails(1, "Shauna", "Jada", 24, "34 Evergreen Road, Lowestoft,NR32 2SA", "Female"),
-                new UserDetails(2, "Dexter ", "Schuyler", 21, "J J B Soccer Dome, Trafford Way, Dumplington,M17 8DD", "Male"),
-                new UserDetails(3, "Deidre ", "Paisley", 22, "11 Meadow Lane, Leasingham,NG34 8LL", "Male"),
-                new UserDetails(4, "Madoline ", "Charlotte", 29, "Hewletts Mill, Galhampton,BA22 7BG", "Male")
+           new UserDetails(1, "Shauna", "Jada", 24, "34 Evergreen Road, Lowestoft,NR32 2SA", "Female"),
+           new UserDetails(2, "Dexter ", "Schuyler", 21, "J J B Soccer Dome, Trafford Way, Dumplington,M17 8DD", "Male"),
+           new UserDetails(3, "Deidre ", "Paisley", 22, "11 Meadow Lane, Leasingham,NG34 8LL", "Male"),
+           new UserDetails(4, "Madoline ", "Charlotte", 29, "Hewletts Mill, Galhampton,BA22 7BG", "Male")
         );
+    }
+
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/reactdata")
+    @ResponseBody
+    public String postFoos() {
+        System.out.println("THIS WORKED!");
+        return "I just got some data from the frontend";
     }
 }
